@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Image</title>
+    <style>
+        body {
+            background-color:beige;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Courier New', monospace;
+        }
+        .mask {
+            white-space: pre;
+            font-size: 8px;
+            line-height: 8px;
+            letter-spacing: 0.5px;
+            text-align: center;
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="mask"></div>
+
+    <script>
+        const text = "I have always believed, and I still believe, that whatever happens to us is a result of what we ourselves have done. We are the architects of our own fate. What we achieve, and what we endure, is determined by the choices we make in life. But it's also true that the path to self-realization is not always a smooth one. It is often filled with pain, confusion, and doubt. And yet, it is through these challenges that we come to understand ourselves better. We become more aware of our own strength. The world is not a place where we can expect easy answers or comfort. It is a place that challenges us to face the deepest questions of existence, to confront the meaning of our lives, and to seek the truth within ourselves.";
+
+        const textChars = text.split('');
+        let charIndex = 0;
+
+        const width = 70;
+        const height = 55;
+        let asciiArt = '';
+
+        for (let y = 0; y < height; y++) {
+            let line = '';
+            for (let x = 0; x < width; x++) {
+                const nx = (x / width) * 2 - 1;
+                const ny = (y / height) * 2 - 1;
+
+                const d1 = Math.sqrt(Math.pow(nx * 1.3, 2) + Math.pow(ny * 1.6, 2));
+
+                const eye1 = Math.sqrt(Math.pow(nx + 0.35, 2) + Math.pow(ny + 0.15, 2)) < 0.22;
+                const eye2 = Math.sqrt(Math.pow(nx - 0.35, 2) + Math.pow(ny + 0.15, 2)) < 0.22;
+                const mouth = Math.sqrt(Math.pow(nx * 1.1, 2) + Math.pow(ny - 0.2, 2)) < 0.5 && 
+                              Math.sqrt(Math.pow(nx * 1.1, 2) + Math.pow(ny - 0.1, 2)) > 0.4;
+
+                if (d1 < 0.9 && !eye1 && !eye2 && !mouth) {
+
+                    const char = textChars[charIndex % textChars.length];
+                    line += char;
+                    charIndex++;
+                } else if (eye1 || eye2 || mouth) {
+
+                    line += ' ';
+                } else {
+
+                    line += ' ';
+                }
+            }
+            asciiArt += line + '\n';
+        }
+        document.querySelector('.mask').textContent = asciiArt;
+    </script>
+</body>
+</html>
