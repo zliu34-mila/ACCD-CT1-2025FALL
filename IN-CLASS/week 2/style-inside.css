@@ -51,6 +51,11 @@ header ul li:last-child{
         flex-direction: row;
         justify-content: space-evenly;
     }
+    nav ul li{
+        border-bottom:none;
+        margin: 10px;
+        padding: 0;
+    }
     header ul a{
         text-decoration: none;
     }
