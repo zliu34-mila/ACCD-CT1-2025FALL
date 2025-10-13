@@ -1,10 +1,18 @@
 body{
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    padding-top: 100px;
 }
 
 header{
     background-color: rgb(255, 236, 67);
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
 }
 
 
@@ -53,6 +61,7 @@ p{
     background-color: rgba(179, 97, 218, 0.479);
     margin-top: -30px;
     
+    
 }
 
 .showcase-arrow-left{
@@ -75,12 +84,54 @@ p{
     padding: 0px;
 }
 
+.buttonImg{
+    text-align: center;
+
+}
+
+.pauseImg{
+    margin-right: 25px;
+    font-size: 30px;
+    border: none;
+    background-color:  rgb(170, 107, 212);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.playImg{
+    margin-left: 25px;
+    font-size: 30px;
+    border: none;
+    background-color: rgb(170, 107, 212);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.pauseImg:active{
+    transform: translateY(0);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.playImg:active{
+    transform: translateY(0);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.pauseImg:hover{
+    background-color: rgb(138, 81, 177) ;
+}
+
+.playImg:hover{
+    background-color: rgb(138, 81, 177) ;
+}
 
 
 nav ul{
     margin: 0;
     padding:20px;
     list-style: none;
+    width: 100%;
+    
 }
 
 nav ul li{

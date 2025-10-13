@@ -7,8 +7,11 @@ console.log(thumbImages)
 let scImage = document.getElementById("showcaseImage")
 let arrowRight = document.querySelector(".showcase-arrow-right")
 let arrowLeft = document.querySelector(".showcase-arrow-left")
+let playBtn = document.querySelector(".playImg")
+let pauseBtn = document.querySelector(".pauseImg")
 
 let currentIndexThumb = 0
+let autoPlayInterval = null
 
 function changeImage(_Image){
     let tumbSrc = _Image.src
@@ -43,6 +46,24 @@ arrowLeft.addEventListener("click", function(){
     }
     changeImage(thumbImages[currentIndexThumb])
 })
+
+playBtn.addEventListener("click",function(){
+    if (autoPlayInterval !== null) return
+
+    autoPlayInterval = setInterval(function(){
+        currentIndexThumb++
+        if (currentIndexThumb >= thumbImages.length){
+            currentIndexThumb = 0
+        }
+        changeImage(thumbImages[currentIndexThumb])
+    }, 2000)
+})
+
+pauseBtn.addEventListener("click", function(){
+    clearInterval(autoPlayInterval)
+    autoPlayInterval = null
+})
+
 // gB1.addEventListener("click", changeImage)
 // gB2.addEventListener("click", changeImage)
 // gB3.addEventListener("click", changeImage)
