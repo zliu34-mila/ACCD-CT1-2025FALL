@@ -53,7 +53,7 @@ function draw() {
   noFill()
 
   beginShape()
-  for(let angle = 0; angle < TWO_PI; angle = angle + 1){
+  for(let angle = 0; angle < TWO_PI; angle = angle + 0.01){
     let randomangle = angle + random(-0.5, 0.5)
     let noiseValue = noise(cos(randomangle) * 2 + outCir, sin(randomangle) * 2 + outCir)
     let r = initRadius + numArcs * strWeight * 2 + 50 + noiseValue * 100
