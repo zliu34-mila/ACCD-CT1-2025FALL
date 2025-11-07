@@ -6,3 +6,17 @@ html, body {
 canvas {
   display: block;
 }
+
+.imgs{
+  margin: 0;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.explaining{
+  text-transform: capitalize;
+  text-align:center;
+  word-wrap:break-word;
+  overflow-wrap: break-word;
+}
