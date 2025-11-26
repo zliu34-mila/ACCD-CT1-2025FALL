@@ -99,7 +99,7 @@ body::after {
     margin-top: 30px;
     padding: 12px 50px;
     border-radius: 40px;
-    font-size: 36px;
+    font-size: 18px;
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -185,9 +185,9 @@ body::after {
     justify-content: flex-start;
     position: relative;
     color: #ffffff;
-    margin-top: 750px;
+    margin-top: 850px;
     padding-left: 120px;
-    font-size: 80px;
+    font-size: 36px;
     font-weight: 700;
     text-transform:capitalize;
     z-index: 30;
@@ -208,7 +208,7 @@ body::after {
     color: #ffffff;
     margin-top: 163px;
     padding: 300px 120px 200px;
-    font-size: 48px;
+    font-size: 28px;
     font-weight: 700;
     z-index: 30;
 }
@@ -233,7 +233,7 @@ body::after {
 
 .background h2 {
     margin: 0;
-    font-size: 120px;
+    font-size: 60px;
     font-weight: 700;
 }
 
@@ -274,7 +274,7 @@ body::after {
     left: 0;
     top: 0;
     width: 300px; 
-    font-size: 40px;
+    font-size: 24px;
     line-height: 1.2;
 }
 
@@ -286,13 +286,13 @@ body::after {
 /* 中间文本内容 */
 .bckLine li > div {
     padding-left: 150px;
-    font-size: 36px;
+    font-size: 28px;
     max-width: 90%;
 }
 
 
 .events_title{
-    font-size: 48px;
+    font-size: 36px;
 }
 
 /* figure */
@@ -328,14 +328,14 @@ body::after {
 
 .specials a{
     color: #ffffff;
-    font-size: 48px;
+    font-size: 24px;
     text-transform: capitalize;
     text-decoration: none;
 }
 
 .specials p{
     color: #ffffff;
-    font-size: 36px;
+    font-size: 28px;
     text-decoration: none;
 }
 
@@ -357,9 +357,9 @@ body::after {
     text-decoration: none;
     /* background-color: #a42323cc; */
     color: white;
-    margin-top: 30px;
+    margin-top: 0px;
     padding: 30px 50px;
-    font-size: 24px;
+    font-size: 12px;
     font-weight: 700;
     border-radius: 20px;
     display: flex;
@@ -411,7 +411,7 @@ body::after {
 }
 
 .didPrograms h2{
-    font-size: 120px;
+    font-size: 60px;
     font-weight: 700;
     margin: 0;
 }
@@ -525,7 +525,7 @@ body::after {
 /* 悬停文字样式 */
 .overlayTitle {
     color: white;
-    font-size: 24px;
+    font-size: 16px;
     margin: 0 0 10px 0;
 
     opacity: 0;
@@ -663,9 +663,9 @@ body::after {
     text-decoration: none;
     /* background-color: #a42323cc; */
     color: white;
-    margin-top: 30px;
+    margin-top: 0px;
     padding: 30px 50px;
-    font-size: 24px;
+    font-size: 12px;
     font-weight: 700;
     border-radius: 20px;
     display: flex;
@@ -711,7 +711,7 @@ body::after {
     justify-content: space-between;
     text-transform: uppercase;
     margin: 0;
-    font-size: 120px;
+    font-size: 60px;
     font-weight: 700;
     color: #ffffff;
 }
@@ -721,7 +721,7 @@ body::after {
     text-decoration: none;
     color: rgb(255, 255, 255);
     padding: 30px 50px;
-    font-size: 24px;
+    font-size: 12px;
     font-weight: 700;
     border-radius: 20px;
     text-transform: uppercase;
@@ -856,7 +856,7 @@ body::after {
     justify-content: center;
     align-items: center;
 
-    font-size: 40px;
+    font-size: 36px;
     font-weight: 700;
     color: #ffffff;
 
@@ -899,7 +899,7 @@ body::after {
 }
 
 .ArielName figcaption p{
-    font-size: 40px;
+    font-size: 36px;
 }
 
 
@@ -944,7 +944,7 @@ footer > div {
 
 .backBtn .back {
     padding: 30px 50px;
-    font-size: 24px;
+    font-size: 12px;
     text-transform: uppercase;
     font-weight: 700;
     border-radius: 20px;
@@ -1010,7 +1010,7 @@ footer .webIfo {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 36px;
+    font-size: 24px;
     font-weight: 600;
     color: rgb(0, 0, 0);
     user-select: none;
@@ -1026,7 +1026,7 @@ footer .webIfo {
 
 .foot-location p {
     width: 700px;
-    font-size: 36px;
+    font-size: 24px;
     text-transform: capitalize;
     margin: 5px 0;
     opacity: 0.9;
@@ -1047,7 +1047,7 @@ footer .webIfo {
     list-style: none;
     padding: 0;
     margin: 0;
-    font-size: 30px;
+    font-size: 24px;
 }
 
 .webIfo strong{
@@ -1061,7 +1061,7 @@ footer .webIfo {
 .webIfo li {
     display: flex;
     margin: 50px 0;
-    font-size: 36px;
+    font-size: 24px;
     text-transform: capitalize;
     gap: 10px;
 }
@@ -1084,7 +1084,7 @@ footer .webIfo {
 .myIfo {
     display: flex;
     flex-direction: column;
-    font-size: 36px;
+    font-size: 24px;
     gap: 20px;
     line-height: 1.6;
 }
