@@ -5,6 +5,7 @@ function setup() {
   colorMode(HSB, 360, 100, 100)
   noStroke()
 
+
   for (let i = 0; i < 30; i++) {
     let bubble = {
       x: random(width),
