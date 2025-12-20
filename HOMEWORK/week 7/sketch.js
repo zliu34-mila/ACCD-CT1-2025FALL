@@ -35,7 +35,7 @@ function draw() {
     b.x = noiseX + dx * attraction
     b.y = noiseY + dy * attraction
 
-    fill(b.hue, 80, 100, 0.6)
+    fill(b.hue, 80, 100, 0.7)
     circle(b.x, b.y, b.size)
 
     b.xMove += b.speed

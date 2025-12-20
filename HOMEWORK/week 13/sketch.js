@@ -19,7 +19,7 @@ hoverTargets.forEach(el => {
 
 const container = document.querySelector(".proGrams");
 const cards = document.querySelectorAll(".figureWrapper");
-const cardWidth = cards[0].offsetWidth + 50;   // 1500 + gap(50)
+const cardWidth = cards[0].offsetWidth + 50; 
 let index = 0;
 
 document.querySelector(".btnRight").onclick = () => {
