@@ -1,7 +1,8 @@
 let bubbles = []
+let mC = document.getElementById("myCanvas")
 
 function setup() {
-  createCanvas(600, 600)
+  createCanvas(600, 600, mC )
   colorMode(HSB, 360, 100, 100)
   noStroke()
 
