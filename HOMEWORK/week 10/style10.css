@@ -1,3 +1,10 @@
 body{
     font-size: 36px;
+    text-transform: capitalize;
+    background-color: rgb(98, 71, 124);
+}
+
+header{
+    font-size: 60px;
+    
 }
