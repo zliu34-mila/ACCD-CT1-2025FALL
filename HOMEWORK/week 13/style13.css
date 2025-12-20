@@ -1,7 +1,10 @@
 body{
-    font-size: 36px;
+    background-color: rgb(110, 66, 128);
+    font-size: 48px;
 }
 
 header{
-    font-size: 48px;
+    font-size: 60px;
+    font:bold white;
+    text-transform: capitalize;
 }
