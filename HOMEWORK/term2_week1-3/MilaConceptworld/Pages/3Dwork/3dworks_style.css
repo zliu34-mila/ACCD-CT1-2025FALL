@@ -212,7 +212,7 @@ nav {
 }
 
 .page-content {
-  margin: 50px 100px;
+  margin: 50px 300px;
   padding: 48px;
   color: var(--black);
   font-size: 18px;
@@ -278,6 +278,15 @@ nav {
   border-radius: 4px;
   object-fit: cover;
   object-position: center;
+}
+
+.project-3dmodeling-single{
+    max-width: 50%;
+    display: flex;
+    gap: 12px;
+    justify-content: center; 
+    align-items: center;
+    margin: 24px auto;
 }
 
 /* ── Content sections ──────────────────────── */
