@@ -132,6 +132,30 @@ nav {
 .tab-btn.active         { color: var(--black); }
 .tab-btn.active::after  { transform: scaleX(1); }
 
+.tab-rightbtn {
+  font-family: 'Lexend Deca', sans-serif;
+  background: none;
+  border: none;
+  cursor: none;
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ff4eb8;
+  padding: 0 22px;
+  position: relative;
+  transition: color .25s;
+  white-space: nowrap;
+}
+
+.nav-tabs button:nth-child(5) {
+  gap:10px;
+  margin-left: auto;
+}
+
+.tab-rightbtn:hover          { color: var(--black); }
+.tab-rightbtn.active         { color: var(--black); }
+
 /* ── Reference 两栏布局 ───────────────────────── */
 .project-3dmodeling-reference {
   max-width: 80%;

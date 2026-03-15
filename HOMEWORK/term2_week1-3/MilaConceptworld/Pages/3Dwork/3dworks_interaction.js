@@ -11,9 +11,11 @@ document.querySelectorAll('a, button, .work-item').forEach(el => {
   el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
 });
 
-// Click ripple
+// ── Click ripple — fires on every <a> inside .work-item, then navigates ──
+document.querySelectorAll('.work-item a').forEach(a => {
   a.addEventListener('click', e => {
     e.preventDefault();
+    const url = a.getAttribute('href');
     const rc  = a.getBoundingClientRect();
     const rip = document.createElement('div');
     rip.className = 'ripple';
@@ -21,9 +23,9 @@ document.querySelectorAll('a, button, .work-item').forEach(el => {
     rip.style.top  = (rc.top  + rc.height / 2) + 'px';
     document.body.appendChild(rip);
     setTimeout(() => rip.remove(), 700);
-    // Uncomment to navigate after effect:
     setTimeout(() => { window.location.href = url; }, 400);
   });
+});
 
 // ── Mouse: move cursor + pupils ────────────────────────────────
 document.addEventListener('mousemove', e => {
@@ -31,8 +33,6 @@ document.addEventListener('mousemove', e => {
 
   cursor.style.left = mx + 'px';
   cursor.style.top  = my + 'px';
-  tooltip.style.left = (mx + 18) + 'px';
-  tooltip.style.top  = (my -  8) + 'px';
 
   document.querySelectorAll('.eye-svg').forEach(svg => {
     const rc  = svg.getBoundingClientRect();
@@ -81,9 +81,9 @@ document.addEventListener('mousemove', e => {
     return {
       x:       Math.random() * W,
       y:       fromBottom ? H + 20 : Math.random() * H,
-      len:     Math.random() * 100 + 6,        // line length 6–20px
-      width:   Math.random() * 3 + 0.4,     // stroke width 0.4–1.6px
-      speed:   Math.random() * 14 + 0.4,     // upward speed
+      len:     Math.random() * 100 + 6,
+      width:   Math.random() * 3 + 0.4,
+      speed:   Math.random() * 14 + 0.4,
       opacity: Math.random() * 0.5 + 0.15,
       color:   colors[Math.floor(Math.random() * colors.length)],
     };
@@ -97,14 +97,14 @@ document.addEventListener('mousemove', e => {
     particles.forEach((p, idx) => {
       ctx.beginPath();
       ctx.moveTo(p.x, p.y);
-      ctx.lineTo(p.x, p.y + p.len);   // straight vertical line going up
+      ctx.lineTo(p.x, p.y + p.len);
       ctx.strokeStyle  = p.color;
       ctx.lineWidth    = p.width;
       ctx.globalAlpha  = p.opacity;
       ctx.lineCap      = 'round';
       ctx.stroke();
 
-      p.y -= p.speed;                  // move straight up, no drift
+      p.y -= p.speed;
       if (p.y + p.len < 0) particles[idx] = makeParticle(true);
     });
 
@@ -130,15 +130,12 @@ tabs.forEach(btn => {
   btn.addEventListener('click', () => {
     const target = btn.dataset.tab;
 
-    // Update buttons
     tabs.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
-    // Update sections
     sections.forEach(s => s.classList.remove('active'));
     document.getElementById('tab-' + target).classList.add('active');
 
-    // Update subtitle
     counter.textContent = '— ' + labels[target];
   });
 });
