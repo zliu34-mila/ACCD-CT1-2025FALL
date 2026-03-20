@@ -11,7 +11,7 @@
 
 body {
   padding-left: 50px;
-  background: url('/Pages/3Dwork/Mediaanimation/images/background.jpg');
+  background: url('././Mediaanimation/images/background.jpg');
   background-size: cover;
   color: var(--black);
   font-family: 'Josefin Sans', sans-serif;
