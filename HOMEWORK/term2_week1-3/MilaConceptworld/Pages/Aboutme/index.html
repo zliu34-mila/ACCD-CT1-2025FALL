@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ABOUT ME</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+        <a class="nav-home" href="../../index.html">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M1 7L7 1L13 7V13H9V9H5V13H1V7Z" stroke="#111" stroke-width="1.2" stroke-linejoin="round"/>
+            </svg>
+            <span>Home</span>
+        </a>
+
+        <div class="nav-tabs">
+            <button class="tab-btn" data-tab="media">Media Animation</button>
+            <button class="tab-btn" data-tab="game">Game Design</button>
+            <button class="tab-btn" data-tab="product">Product Design</button>
+            <button class="tab-btn" data-tab="prototype">Prototype &amp; Concept</button>
+            <svg> 
+                <circle cx="7" cy="7" r="6" stroke="#111" stroke-width="1.2"/>
+            </svg>
+
+            <button class="tab-rightbtn" data-tab="see my CV">Come to see my CV</button>
+            <button class="tab-rightbtn" data-tab="contact">Contact</button>
+        </div>
+    </nav>
+
+<!-- STAGE -->
+<div class="stage" id="stage">
+  <div class="bg-glow"></div>
+  <div class="ring" id="ring"></div>
+</div>
+
+<!-- ARROWS -->
+<div class="arrow arrow-l" id="arrowL">←</div>
+<div class="arrow arrow-r" id="arrowR">→</div>
+<div class="hint">drag · scroll · arrow keys</div>
+
+<!-- DIM OVERLAY -->
+<div class="dim" id="dim"></div>
+
+
+<script src="interaction.js"></script>
+</body>
+</html>

@@ -1,12 +1,12 @@
 // ── Project list ───────────────────────────────────────────────
 const projects = [
-  { label:"ABOUT ME", url: "Pages/About/index.html" },
-  { label: "WORK EXPERENCES", url: "Pages/Work/index.html" },
-  { label: "MOTION", url: "Pages/Motion/index.html" },
-  { label: "UI·UX", url: "Pages/UIUX/index.html" },
-  { label: "PHOTO", url: "Pages/Photo/index.html" },
-  { label: "3D WORK", url: "Pages/3Dwork/index.html"},
-  { label: "PRINT", url: "Pages/Print/index.html" },
+  { label:"ABOUT ME", url: "Pages/Aboutme/index.html" },
+  { label: "PRACTICES", url: "Pages/Work/index.html" },
+  { label: "INTERDISCIPLINARY", url: "Pages/Interdisciplinary/index.html" },
+  { label: "MATERIAL INNOVATION", url: "Pages/MaterialInnovation/index.html" },
+  { label: "INTERESTS", url: "Pages/Interests/index.html" },
+  { label: "CREATIVE TECHNOLOGY", url: "Pages/3Dwork/index.html"},
+  { label: "HAND-ON WORKS", url: "Pages/HandOn/index.html" },
   { label: "PATTERN", url: "Pages/Pattern/index.html" },
   { label: "POSTER", url: "Pages/Poster/index.html" },
   { label: "MURAL", url: "Pages/Mural/index.html" },
@@ -203,19 +203,19 @@ const grid    = document.getElementById('eyes-grid');
 const cursor  = document.getElementById('cursor');
 const tooltip = document.getElementById('tooltip');
 
-// ── Floating particles (canvas) ────────────────────────────────
-(function initParticles() {
+// ──  background ───────────────────────────────────
+(function initPixelGirl() {
   const canvas = document.createElement('canvas');
   canvas.id = 'particles';
   canvas.style.cssText = [
-    'position:fixed', 'inset:0', 'width:100%', 'height:100%',
-    'pointer-events:none', 'z-index:0'
+    'position:fixed','inset:0','width:100%','height:100%',
+    'pointer-events:none','z-index:0'
   ].join(';');
   document.body.prepend(canvas);
 
   const ctx = canvas.getContext('2d');
-  const colors = ['#a200ff'];
-  let W, H, particles = [];
+  const PX = 6;
+  let W, H;
 
   function resize() {
     W = canvas.width  = window.innerWidth;
@@ -224,38 +224,104 @@ const tooltip = document.getElementById('tooltip');
   resize();
   window.addEventListener('resize', resize);
 
-  function makeParticle(fromBottom) {
-    return {
-      x:       Math.random() * W,
-      y:       fromBottom ? H + 20 : Math.random() * H,
-      len:     Math.random() * 14 + 6,        // line length 6–20px
-      width:   Math.random() * 1,     // stroke width 0.4–1.6px
-      speed:   Math.random() * 1.4 + 0.4,     // upward speed
-      opacity: Math.random() * 0.5 + 0.15,
-      color:   colors[Math.floor(Math.random() * colors.length)],
-    };
+  function px(x, y, color) {
+    ctx.fillStyle = color;
+    ctx.fillRect(x * PX, y * PX, PX, PX);
   }
 
-  for (let i = 0; i < 120; i++) particles.push(makeParticle(false));
+  const hairC = '#1a1a1a', skinC = '#fddbb4', dresC = '#a855f7';
+  const dre2C = '#7c3aed', shoeC = '#2d1b69', eyeC  = '#1a1a1a';
+  const blshC = '#ffb3ba', sockC = '#ffffff';
+
+  const frame1 = [
+    [2,0,hairC],[3,0,hairC],[4,0,hairC],[5,0,hairC],[6,0,hairC],
+    [1,1,hairC],[2,1,hairC],[3,1,hairC],[4,1,hairC],[5,1,hairC],[6,1,hairC],[7,1,hairC],
+    [1,2,hairC],[7,2,hairC],[1,3,hairC],[7,3,hairC],
+    [2,2,skinC],[3,2,skinC],[4,2,skinC],[5,2,skinC],[6,2,skinC],
+    [2,3,skinC],[3,3,skinC],[4,3,skinC],[5,3,skinC],[6,3,skinC],
+    [3,2,eyeC],[5,2,eyeC],[3,3,blshC],[5,3,blshC],
+    [1,4,hairC],[1,5,hairC],[1,6,hairC],
+    [2,4,dresC],[3,4,dresC],[4,4,dresC],[5,4,dresC],[6,4,dresC],
+    [2,5,dresC],[3,5,dresC],[4,5,dresC],[5,5,dresC],[6,5,dresC],
+    [2,6,dre2C],[3,6,dre2C],[4,6,dre2C],[5,6,dre2C],[6,6,dre2C],
+    [1,7,dresC],[2,7,dresC],[3,7,dresC],[4,7,dresC],[5,7,dresC],[6,7,dresC],[7,7,dresC],
+    [3,8,skinC],[5,8,skinC],[3,9,sockC],[5,9,skinC],
+    [2,10,shoeC],[3,10,shoeC],[5,10,shoeC],[6,10,shoeC],
+  ];
+  const frame2 = [
+    [2,0,hairC],[3,0,hairC],[4,0,hairC],[5,0,hairC],[6,0,hairC],
+    [1,1,hairC],[2,1,hairC],[3,1,hairC],[4,1,hairC],[5,1,hairC],[6,1,hairC],[7,1,hairC],
+    [1,2,hairC],[7,2,hairC],[1,3,hairC],[7,3,hairC],
+    [2,2,skinC],[3,2,skinC],[4,2,skinC],[5,2,skinC],[6,2,skinC],
+    [2,3,skinC],[3,3,skinC],[4,3,skinC],[5,3,skinC],[6,3,skinC],
+    [3,2,eyeC],[5,2,eyeC],[3,3,blshC],[5,3,blshC],
+    [1,4,hairC],[1,5,hairC],[1,6,hairC],
+    [2,4,dresC],[3,4,dresC],[4,4,dresC],[5,4,dresC],[6,4,dresC],
+    [2,5,dresC],[3,5,dresC],[4,5,dresC],[5,5,dresC],[6,5,dresC],
+    [2,6,dre2C],[3,6,dre2C],[4,6,dre2C],[5,6,dre2C],[6,6,dre2C],
+    [1,7,dresC],[2,7,dresC],[3,7,dresC],[4,7,dresC],[5,7,dresC],[6,7,dresC],[7,7,dresC],
+    [3,8,skinC],[5,8,skinC],[3,9,skinC],[5,9,sockC],
+    [2,10,shoeC],[3,10,shoeC],[5,10,shoeC],[6,10,shoeC],
+  ];
+
+  function drawGirl(gx, gy, facingLeft, frameIdx) {
+    const frame = frameIdx % 2 === 0 ? frame1 : frame2;
+    ctx.save();
+    if (facingLeft) {
+      ctx.translate((gx + 9) * PX, 0);
+      ctx.scale(-1, 1);
+      frame.forEach(([x, y, c]) => px(x, gy + y, c));
+    } else {
+      frame.forEach(([x, y, c]) => px(gx + x, gy + y, c));
+    }
+    ctx.restore();
+  }
+
+  const girl = {
+    x: 20, y: 50, vx: 0, vy: 0,
+    frame: 0, frameTimer: 0, frameRate: 18,
+    facingLeft: false,
+    targetX: 0, targetY: 0,
+    waitTimer: 0,
+  };
+
+  function newTarget() {
+    girl.targetX = 6  + Math.random() * (W / PX - 20);
+    girl.targetY = 4  + Math.random() * (H / PX - 18);
+  }
+  newTarget();
+
+  function update() {
+    if (girl.waitTimer > 0) {
+      girl.waitTimer--;
+      girl.vx = 0; girl.vy = 0;
+      return;
+    }
+    const dx = girl.targetX - girl.x;
+    const dy = girl.targetY - girl.y;
+    const dist = Math.hypot(dx, dy);
+    if (dist < 1.5) {
+      girl.waitTimer = 60 + Math.floor(Math.random() * 120);
+      newTarget();
+    } else {
+      const speed = 0.5;
+      girl.vx = (dx / dist) * speed;
+      girl.vy = (dy / dist) * speed * 0.4;
+      girl.facingLeft = dx < 0;
+      girl.x += girl.vx;
+      girl.y += girl.vy;
+    }
+  }
 
   function animate() {
     ctx.clearRect(0, 0, W, H);
-
-    particles.forEach((p, idx) => {
-      ctx.beginPath();
-      ctx.moveTo(p.x, p.y);
-      ctx.lineTo(p.x, p.y + p.len);   // straight vertical line going up
-      ctx.strokeStyle  = p.color;
-      ctx.lineWidth    = p.width;
-      ctx.globalAlpha  = p.opacity;
-      ctx.lineCap      = 'round';
-      ctx.stroke();
-
-      p.y -= p.speed;                  // move straight up, no drift
-      if (p.y + p.len < 0) particles[idx] = makeParticle(true);
-    });
-
-    ctx.globalAlpha = 1;
+    girl.frameTimer++;
+    if (girl.frameTimer >= girl.frameRate) {
+      girl.frameTimer = 0;
+      if (Math.abs(girl.vx) > 0.01 || Math.abs(girl.vy) > 0.01) girl.frame++;
+    }
+    drawGirl(Math.round(girl.x), Math.round(girl.y), girl.facingLeft, girl.frame);
+    update();
     requestAnimationFrame(animate);
   }
   animate();
@@ -287,7 +353,6 @@ projects.forEach((proj, i) => {
 
   grid.appendChild(card);
 
-  // Hover events
   const a = card.querySelector('a');
   a.addEventListener('mouseenter', () => {
     cursor.classList.add('hovering');
@@ -299,7 +364,6 @@ projects.forEach((proj, i) => {
     tooltip.classList.remove('visible');
   });
 
-  // Click ripple
   a.addEventListener('click', e => {
     e.preventDefault();
     const rc  = a.getBoundingClientRect();
@@ -309,11 +373,9 @@ projects.forEach((proj, i) => {
     rip.style.top  = (rc.top  + rc.height / 2) + 'px';
     document.body.appendChild(rip);
     setTimeout(() => rip.remove(), 700);
-    // Uncomment to navigate after effect:
     setTimeout(() => { window.location.href = url; }, 400);
   });
 
-  // Random blink
   (function blink() {
     const svg = card.querySelector('.eye-svg');
     setTimeout(() => {
