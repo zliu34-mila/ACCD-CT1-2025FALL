@@ -47,8 +47,8 @@ document.addEventListener('click', e => {
       x:       Math.random() * W,
       y:       fromBottom ? H + 20 : Math.random() * H,
       len:     Math.random() * 100 + 6,
-      width:   Math.random() * 3 + 0.4,
-      speed:   Math.random() * 14 + 0.4,
+      width:   Math.random() * 1 + 0.4,
+      speed:   Math.random() * 5 + 0.4,
       opacity: Math.random() * 0.5 + 0.15,
       color:   colors[Math.floor(Math.random() * colors.length)],
     };

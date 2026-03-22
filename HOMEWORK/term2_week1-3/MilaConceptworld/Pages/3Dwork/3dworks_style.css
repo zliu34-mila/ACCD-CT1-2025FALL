@@ -31,7 +31,7 @@ body::before {
 /* ── Custom cursor ─────────────────────────── */
 #cursor {
   position: fixed;
-  width: 80px; height: 80px;
+  width: 40px; height: 40px;
   background:#ff4eb8;
   border-radius: 50%;
   pointer-events: none;
@@ -41,7 +41,7 @@ body::before {
   mix-blend-mode: difference;
 }
 #cursor.hover {
-  width: 100px; height: 100px;
+  width: 80px; height: 80px;
   background:#ff4eb8;
   border-radius: 50%;
 }
@@ -50,7 +50,7 @@ body::before {
 .deco {
   position: fixed;
   pointer-events: none;
-  z-index: 10;
+  z-index: 1;
   animation: float 4s ease-in-out infinite;
 }
 @keyframes float {
@@ -81,7 +81,7 @@ nav {
   gap: 8px;
   text-decoration: none;
   color: var(--black);
-  font-size: 36px;
+  font-size: 24px;
   font-style: italic;
   letter-spacing: 0.04em;
   margin-right: 40px;
@@ -94,7 +94,7 @@ nav {
 .nav-home:hover { opacity: 0.5; }
 .nav-home svg   { 
     flex-shrink: 0;
-    width: 40px; height: 40px;
+    width: 20px; height: 20px;
 }
 
 /* Tab buttons */
@@ -110,7 +110,7 @@ nav {
   border: none;
   cursor: none;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 16px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--gray);
@@ -138,7 +138,7 @@ nav {
   border: none;
   cursor: none;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 16px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #ff4eb8;
@@ -218,7 +218,7 @@ nav {
 .page-title {
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 1000;
-  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-size: clamp(24px, 36px, 48px);
   line-height: 1;
   letter-spacing: -0.01em;
 }
@@ -228,7 +228,7 @@ nav {
 }
 .page-subtitle {
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 48px;
+  font-size: 22px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--black);
@@ -265,7 +265,7 @@ nav {
 
 
 .project-description {
-  font-size: 38px;
+  font-size: 16px;
   line-height: 1.6;
   color: var(--black);
   margin-bottom: 48px;
@@ -468,13 +468,241 @@ nav {
   to { transform: translate(-50%, -50%) scale(4); opacity: 0; }
 }
 
+@media (max-width: 767px) {
+ 
+  /* Kill custom cursor on touch */
+  body   { cursor: auto; padding-left: 0; }
+  #cursor { display: none; }
+ 
+  /* Nav */
+  nav {
+    height: auto;
+    flex-direction: column;
+    padding: 0 20px;
+    align-items: flex-start;
+  }
+  .nav-home {
+    padding: 16px 0;
+    margin-right: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    width: 100%;
+    font-size: 18px;
+  }
+  .nav-tabs {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 4px 0;
+    gap: 0;
+  }
+  .nav-tabs::-webkit-scrollbar { display: none; }
+  .tab-btn, .tab-rightbtn {
+    font-size: 10px;
+    padding: 12px 12px;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .tab-btn::after { left: 12px; right: 12px; }
+ 
+  /* Page header */
+  .page-header {
+    padding: 140px 20px 28px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .page-title  { font-size: 24px; }
+  .page-subtitle { font-size: 14px; padding: 4px 0; }
+ 
+  /* Page content */
+  .page-content {
+    margin: 24px 0;
+    padding: 24px 20px;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .project-description { font-size: 12px; margin-bottom: 28px; }
+ 
+  /* Sections */
+  .section { padding: 28px 20px 48px; }
+ 
+  /* Reference two-column → single column */
+  .project-3dmodeling-reference {
+    max-width: 100%;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 20px;
+    margin: 20px auto;
+  }
+  .reference-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .explanation { font-size: 16px; }
+ 
+  /* Sketch / 3-D single panels */
+  .project-sketch,
+  .project-sketch-single,
+  .project-3dmodeling-single {
+    max-width: 100%;
+    margin: 16px 0;
+  }
+ 
+  /* 2-D matrix */
+  .project-2dmatrix-single {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .project-2dmatrix-single img { width: 100%; }
+ 
+  /* Work grid → single column */
+  .work-grid {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  .work-item:nth-child(3n+1) {
+    aspect-ratio: 16/9;
+    grid-column: span 1;
+  }
+ 
+  /* Floating decos — hide on mobile to save space */
+  .deco { display: none; }
+}
 
-/* ── Responsive ────────────────────────────── */
-@media (max-width: 768px) {
-  nav            { padding: 0 20px; }
-  .nav-home      { margin-right: 20px; padding-right: 20px; }
-  .tab-btn       { padding: 0 12px; font-size: 0.65rem; }
-  .page-header   { padding: 100px 20px 32px; flex-direction: column; align-items: flex-start; gap: 8px; }
-  .section       { padding: 40px 20px 60px; }
-  .work-item:nth-child(3n+1) { grid-column: span 1; aspect-ratio: 4/3; }
+@media (min-width: 768px) and (max-width: 1199px) {
+ 
+  body { padding-left: 0; }
+ 
+  /* Nav */
+  nav { height: 100px; padding: 0 28px; }
+  .nav-home {
+    font-size: 24px;
+    padding: 24px 24px;
+    margin-right: 20px;
+  }
+  .tab-btn, .tab-rightbtn {
+    font-size: 14px;
+    padding: 0 16px;
+    letter-spacing: 0.10em;
+  }
+  .tab-btn::after { left: 16px; right: 16px; }
+ 
+  /* Page header */
+  .page-header {
+    padding: 130px 28px 36px;
+    gap: 12px;
+  }
+  .page-title   { font-size: 32px; }
+  .page-subtitle { font-size: 18px; }
+ 
+  /* Page content */
+  .page-content {
+    margin: 36px 80px;
+    padding: 36px;
+    font-size: 16px;
+  }
+  .project-description { font-size: 24px; }
+ 
+  /* Sections */
+  .section { padding: 40px 28px 64px; }
+ 
+  /* Reference — keep 2 cols but tighter */
+  .project-3dmodeling-reference {
+    max-width: 100%;
+    gap: 24px 48px;
+    padding: 0 28px;
+  }
+  .reference-grid { gap: 20px; }
+ 
+  /* Sketches */
+  .project-sketch,
+  .project-sketch-single,
+  .project-3dmodeling-single {
+    max-width: 70%;
+  }
+ 
+  /* Work grid — 2 cols max */
+  .work-grid { grid-template-columns: repeat(2, 1fr); }
+  .work-item:nth-child(3n+1) {
+    aspect-ratio: 16/9;
+    grid-column: span 2;
+  }
+}
+ 
+ 
+/* ── 3. MACBOOK 13"  (1200px – 1439px) ─────────────────────────── */
+@media (min-width: 1200px) and (max-width: 1920px) {
+ 
+  body { padding-left: 0; }
+ 
+  /* Nav */
+  nav { height: 120px; padding: 0 36px; }
+  .nav-home {
+    font-size: 20px;
+    padding: 32px 32px;
+    margin-right: 28px;
+  }
+  .tab-btn, .tab-rightbtn {
+    font-size: 14px;
+    padding: 0 18px;
+  }
+  .tab-btn::after { left: 18px; right: 18px; }
+ 
+  /* Page header */
+  .page-header { padding: 148px 36px 40px; }
+  .page-title  { font-size: clamp(24px, 32px, 40px); }
+  .page-subtitle { font-size: 20px; }
+ 
+  /* Page content */
+  .page-content {
+    margin: 40px 160px;
+    padding: 40px;
+    font-size: 18px;
+  }
+  .project-description { font-size: 14px; }
+ 
+  /* Sections */
+  .section { padding: 48px 36px 72px; }
+ 
+  /* Reference */
+  .project-3dmodeling-reference {
+    max-width: 90%;
+    gap: 28px 72px;
+    padding: 0 60px;
+  }
+  .reference-grid { gap: 32px; }
+  .explanation { font-size: 20px; }
+ 
+  /* Sketches */
+  .project-sketch,
+  .project-sketch-single,
+  .project-3dmodeling-single {
+    max-width: 55%;
+  }
+ 
+  /* Work grid — stays auto-fill but min a bit smaller */
+  .work-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+}
+
+
+
+/* ── 5. ULTRA-WIDE  (≥ 1920px) ─────────────────────────────────── */
+@media (min-width: 1920px) {
+  .page-content {
+    margin: 50px 400px;
+  }
+  .project-3dmodeling-reference {
+    max-width: 75%;
+    padding: 0 120px;
+  }
+  .project-sketch,
+  .project-sketch-single,
+  .project-3dmodeling-single {
+    max-width: 45%;
+  }
 }
