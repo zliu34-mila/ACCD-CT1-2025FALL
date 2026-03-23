@@ -1,19 +1,19 @@
 // ── Project list ───────────────────────────────────────────────
 const projects = [
   { label:"ABOUT ME", url: "Pages/Aboutme/index.html" },
-  { label: "PRACTICES", url: "Pages/Work/index.html" },
+  { label: "PORTFOLIO", url: "Pages/portfolio/index.html" },
   { label: "INTERDISCIPLINARY", url: "Pages/Interdisciplinary/index.html" },
   { label: "MATERIAL INNOVATION", url: "Pages/MaterialInnovation/index.html" },
   { label: "INTERESTS", url: "Pages/Interests/index.html" },
   { label: "CREATIVE TECHNOLOGY", url: "Pages/3Dwork/index.html"},
   { label: "HAND-ON WORKS", url: "Pages/HandOn/index.html" },
-  { label: "PATTERN", url: "Pages/Pattern/index.html" },
-  { label: "POSTER", url: "Pages/Poster/index.html" },
-  { label: "MURAL", url: "Pages/Mural/index.html" },
-  { label: "DIGITAL", url: "Pages/Digital/index.html" },
-  { label: "SPATIAL", url: "Pages/Spatial/index.html" },
-  { label: "COLLAB", url: "Pages/Collab/index.html" },
-  { label: "ARCHIVE", url: "Pages/Archive/index.html" },
+  { label: "LOADING", url: "Pages/Pattern/index.html" },
+  { label: "LOADING", url: "Pages/Poster/index.html" },
+  { label: "LOADING", url: "Pages/Mural/index.html" },
+  { label: "LOADING", url: "Pages/Digital/index.html" },
+  { label: "LOADING", url: "Pages/Spatial/index.html" },
+  { label: "LOADING", url: "Pages/Collab/index.html" },
+  { label: "LOADING", url: "Pages/Archive/index.html" },
   { label: "CONTACT", url: "Pages/Contact/index.html" }
 ];
 
