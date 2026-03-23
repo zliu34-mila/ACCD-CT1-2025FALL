@@ -5,9 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>ABOUT ME</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+
+    <div class="bg-glow"></div>
+        
     <!-- NAV -->
         <div id="cursor"></div>
         <nav>
@@ -20,34 +27,81 @@
 
             <div class="nav-tabs">
                 <button class="tab-btn" href="./index.html" data-tab="previous works">previous works</button>
-                <button class="tab-btn" href="./interests.html"  data-tab="processing works">processing works</button>
+                <button class="tab-btn" href="./processing-works.html" data-tab="processing works">processing works</button>
                 <button class="tab-rightbtn" href="../../index.html" data-tab="see my CV">Come to see my CV</button>
                 <button class="tab-rightbtn" href="../../index.html" data-tab="contact">Contact</button>
             </div>
         </nav>
         
-        <!-- STAGE -->
-        <div class="stage" id="stage">
-            <div class="bg-glow"></div>
-        </div>
+        <div class="scroll-wrapper">
 
-        <div class="show-video">
-            <h2 class="video-title">interactive with design</h2>
-            <div class="video-container">
-                <video autoplay loop muted>
-                    <source src="./images/interactive_video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                    <source src="./images/interactive_video.webm" type="video/webm">
-                    Your browser does not support the video tag.
-                    <source src="./images/interactive_video.webm" type="video/webm">
-                    Your browser does not support the video tag.
-                    <source src="./images/interactive_video.webm" type="video/webm">
-                    Your browser does not support the video tag.
-                    <source src="./images/interactive_video.webm" type="video/webm">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
+            <section class="section-video">
+                <div class="show-video">
+                    <div class="header-title">
+                        <div>
+                            <h1>interactive with design</h1>
+                        </div>
+                        
+                    <div>
+                            <h1>environment design</h1>
+                        </div>
+
+                        <div>
+                            <h1>product design</h1>
+                        </div>
+
+                        <div>
+                            <h1>immersive storytelling</h1>
+                        </div>
+                    </div>
+                    
+                    <div class="video-container">
+                        <video autoplay muted id="bg-video">
+                            <source src="./images/video/spacecraft.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </section>
+        
+            <section class="section-previousworks">
+
+                 <h1>system design</h1>
+
+                 <div class="previouswork-container">
+                    <div class="previouswork1">
+                        <div class="previouswork1">
+                            <img src="./images/organic-waste-system.jpg" alt="previous works"/>
+                        </div>
+                        <div class="previouswork-description">
+                            <h2>urban organic waste monitoring system & collection system design</h2>
+                        </div>
+                    </div>
+                     
+                            
+
+                     <div class="previouswork2">
+                         <div>
+                            <img src="./images/sunpanel-system.jpg" alt="previous works"/>
+                         </div>
+                         <div class="previouswork-description">
+                             <h2>urban organic waste monitoring system & collection system design</h2>
+                        </div>
+                     </div>
+
+                </div>
+
+            </section>
+
+            <section class="section-processingworks">
+                <div class="section-content">
+                    <h2>Next Section</h2>
+                    <p>内容在这里</p>
+                </div>
+            </section>
+
+
         </div>
+       
 
         
 </body>
