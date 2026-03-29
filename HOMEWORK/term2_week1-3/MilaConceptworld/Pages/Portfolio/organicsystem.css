@@ -319,7 +319,8 @@ nav::before {
    FOOTER
 ───────────────────────────────────── */
 .page-footer {
-  position: fixed;
+  position: static;
+  margin-top: 120px;
   bottom: 20px; left: 48px;
   font-family: 'DM Mono', monospace;
   font-size: 10px;
