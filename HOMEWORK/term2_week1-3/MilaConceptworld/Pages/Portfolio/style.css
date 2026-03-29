@@ -19,16 +19,13 @@
 html, body {
   width: 100%;
   background: var(--white);
-  overflow: hidden;
+  overflow-x: hidden;   /* 只锁横向，不锁纵向 */
   font-family: 'DM Mono', monospace;
   color: var(--ink);
 }
 
 /* ─────────────────────────────────────
    CUSTOM CURSOR
-   — must be fixed + highest z-index
-   — will-change puts it on its own
-     compositing layer, above backdrop-filter
 ───────────────────────────────────── */
 #cursor {
   position: fixed;
@@ -37,8 +34,8 @@ html, body {
   background: var(--accent);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 99999;          /* above everything */
-  will-change: left, top;  /* own compositing layer → beats backdrop-filter */
+  z-index: 99999;
+  will-change: left, top;
   transform: translate(-50%, -50%);
   transition:
     width  .18s ease,
@@ -69,12 +66,9 @@ nav {
   align-items: stretch;
   height: 150px;
   padding: 0 48px;
-  pointer-events: none; 
-
+  pointer-events: none;
 }
 
-/* Blur via ::before so it doesn't create a
-   stacking context that clips #cursor       */
 nav::before {
   content: '';
   position: absolute;
@@ -85,7 +79,6 @@ nav::before {
   -webkit-backdrop-filter: blur(12px);
 }
 
-/* Home link */
 .nav-home {
   font-family: 'Josefin Sans', sans-serif;
   display: flex;
@@ -101,7 +94,7 @@ nav::before {
   padding: 0 40px;
   white-space: nowrap;
   transition: opacity .2s;
-  pointer-events: all;            /* re-enable clicks */
+  pointer-events: all;
 }
 .nav-home:hover { opacity: 0.5; }
 .nav-home svg {
@@ -109,7 +102,6 @@ nav::before {
   width: 20px; height: 20px;
 }
 
-/* Tab row */
 .nav-tabs {
   display: flex;
   align-items: stretch;
@@ -162,13 +154,13 @@ nav::before {
 .tab-rightbtn:hover  { color: var(--black); }
 .tab-rightbtn.active { color: var(--black); }
 
-/* Push last buttons to right */
 .nav-tabs button:last-child {
   margin-left: auto;
 }
 
-
-/* Atmospheric glow */
+/* ─────────────────────────────────────
+   ATMOSPHERIC GLOW
+───────────────────────────────────── */
 .bg-glow {
   position: fixed;
   inset: 0;
@@ -180,19 +172,20 @@ nav::before {
   z-index: 0;
 }
 
-/* 外层容器：相对定位，设置你想要的尺寸 */
+/* ─────────────────────────────────────
+   VIDEO
+───────────────────────────────────── */
 .show-video {
     position: relative;
     top: 0;
     width: 100%;
-    height: 800px; /* 根据需要调整高度 */
+    height: 800px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
 
-/* 视频铺满容器，像背景一样 */
 .video-container {
     position: absolute;
     top: 0;
@@ -200,15 +193,15 @@ nav::before {
     width: 100%;
     height: 100%;
     z-index: 0;
+    isolation: isolate;
 }
 
 .video-container video {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 关键：视频裁剪铺满，不变形 */
+    object-fit: cover;
 }
 
-/* 黑色遮罩层 */
 .video-container::after {
     content: '';
     position: absolute;
@@ -216,20 +209,17 @@ nav::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); 
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 
-/* 文字层（遮罩上方） */
 .video-title {
     position: relative;
-    z-index: 2; /* 高于遮罩的 z-index 1 */
+    z-index: 2;
     color: #ffffff;
     font-size: 2rem;
     text-align: center;
-    /* 其他样式按需添加 */
 }
-
 
 .header-title {
     position: relative;
@@ -238,10 +228,10 @@ nav::before {
     flex-direction: column;
     align-items: flex-start;
     padding-left: 20px;
-    z-index: 2; /* 高于遮罩的 z-index 1 */
+    z-index: 2;
     color: #ffffff;
     font-size: 24px;
-    font-family:'Google Sans Flex', sans-serif;
+    font-family: 'Google Sans Flex', sans-serif;
     text-transform: capitalize;
     gap: 50px;
 }
@@ -252,38 +242,57 @@ nav::before {
     margin: 0 0 16px 0;
 }
 
-
+/* ─────────────────────────────────────
+   SCROLL WRAPPER
+───────────────────────────────────── */
 .scroll-wrapper {
   width: 100%;
   height: 100vh;
-  position: relative;
+  position: fixed;        /* 整个舞台固定在视口 */
+  top: 0;
+  left: 0;
+  overflow: hidden;       /* 防止滑动时露出底部空白 */
 }
 
-.section-video,
+/* ─────────────────────────────────────
+   SECTIONS
+───────────────────────────────────── */
+
+/* section-video：固定在导航栏下方，不参与滑动 */
+.section-video {
+  position: absolute;
+  top: 150px;             /* nav 高度 */
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 150px);
+  z-index: 1;
+}
+
+/* 后续 section：从底部滑上来，顶部贴紧导航栏 */
 .section-previousworks,
 .section-processingworks {
   position: absolute;
-  top: 130px;
+  top: 150px;             /* 顶部不超过导航栏 */
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 150px);  /* 剩余视口高度 */
+  overflow-y: auto;       /* 内容超出时可在 section 内滚动 */
   transition: transform 0.8s cubic-bezier(0.77, 0, 0.18, 1);
 }
 
-.section-video         { z-index: 1; transform: translateY(0); }
-.section-previousworks { z-index: 2; transform: translateY(100%); }
-.section-processingworks { z-index: 3; transform: translateY(100%); }
+.section-previousworks   { z-index: 2; transform: translateY(100vh); }
+.section-processingworks { z-index: 3; transform: translateY(100vh); }
 
-/* 当section激活时滑上来 */
 .section-previousworks.active  { transform: translateY(0); }
 .section-processingworks.active { transform: translateY(0); }
 
-
-/* section 内部通用样式 */
-
-.section-previousworks {
+/* ─────────────────────────────────────
+   SECTION CONTENT
+───────────────────────────────────── */
+.section-previousworks,
+.section-processingworks {
     display: flex;
-    flex-direction: column; /* 标题在上，容器在下 */
+    flex-direction: column;
     padding: 40px 60px;
     background:
     radial-gradient(ellipse 70% 50% at 50% 20%, rgba(210,70,140,.22) 0%, transparent 65%),
@@ -292,48 +301,56 @@ nav::before {
     #f5f4f0;
 }
 
-.previouswork-container {
+.previouswork-container,
+.processingworks-content {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 两列 */
+    grid-template-columns: repeat(2, 1fr);
     margin: 50px;
-    gap:80px;
+    gap: 80px;
     padding: 24px;
 }
 
-.section-previousworks h1 {
-    display:flex;
+.section-previousworks h1,
+.section-processingworks h1 {
+    display: flex;
     font-family: 'Google Sans Flex', sans-serif;
     font-size: 24px;
     font-weight: 400;
     color: var(--ink);
     line-height: 1.5;
-    border-top:2px solid var(--line);
-    border-bottom:2px solid var(--line);
+    border-top: 2px solid var(--line);
+    border-bottom: 2px solid var(--line);
     text-transform: capitalize;
     letter-spacing: 0.05em;
     padding: 10px;
 }
 
-/* previouswork1 和 previouswork2 都是卡片，样式一样 */
-.previouswork1,
-.previouswork2 {
+/* ─────────────────────────────────────
+   WORK CARDS
+───────────────────────────────────── */
+.previouswork {
+    max-width: 100%;
     position: relative;
     overflow: hidden;
     border-radius: 8px;
 }
 
-.previouswork1 img,
-.previouswork2 img {
+.previouswork a {
+    display: block;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.previouswork img {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
     display: block;
     transition: transform 0.4s ease;
-     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.previouswork1 img:hover,
-.previouswork2 img:hover {
+.previouswork img:hover {
     transform: scale(1.03);
 }
 
@@ -341,14 +358,12 @@ nav::before {
     font-family: 'Google Sans Flex', sans-serif;
     font-size: 12px;
     font-weight: 400;
-    margin:12px 0 0 0;
+    margin: 12px 0 0 0;
     color: var(--ink);
     line-height: 1.5;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
-
-
 
 /* ─────────────────────────────────────
    FOOTER
@@ -364,6 +379,13 @@ nav::before {
   gap: 24px;
   align-items: center;
 }
+
+.additional-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .back-to-top {
   background: none;
   border: 1px solid var(--gray);
@@ -382,7 +404,7 @@ nav::before {
 }
 
 /* ─────────────────────────────────────
-   RESPONSIVE  ≤ 768px  →  LIST VIEW
+   RESPONSIVE ≤ 768px
 ───────────────────────────────────── */
 @media (max-width: 768px) {
 
@@ -408,10 +430,8 @@ nav::before {
     padding: 16px 14px;
   }
 
-  /* Hide 3-D elements on mobile */
   .stage, .arrow, .hint { display: none; }
 
-  /* Personal info becomes a simple stacked layout */
   .personal-info {
     position: relative;
     top: auto; left: auto;
@@ -424,4 +444,16 @@ nav::before {
   }
   .avatar img { width: 60%; border-radius: 50%; }
   .details .name { font-size: 1.6rem; }
+
+  .previouswork-container,
+  .processingworks-content {
+    grid-template-columns: 1fr;
+    margin: 20px;
+    gap: 40px;
+  }
+
+  .section-previousworks,
+  .section-processingworks {
+    padding: 24px;
+  }
 }
