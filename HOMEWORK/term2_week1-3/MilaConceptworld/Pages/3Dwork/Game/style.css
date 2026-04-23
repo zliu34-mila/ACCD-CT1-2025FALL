@@ -187,17 +187,18 @@ nav {
 /* ── 每栏里的图片网格 ─────────────────────────── */
 .reference-grid {
   flex: 1;
-  margin: 0px;
+  margin: 0 auto;
   display: grid;
-  max-width: 100%;
+  width: 80%;
   height: calc(100% - 36px);
   grid-template-columns: 1fr 1fr;   /* 每栏内再两列 */
   gap: 50px;
 }
 
 .reference-grid img {
-  max-width: 100%;
+  max-width: 70%;
   height: 100%;
+  margin: 0 auto;
   object-fit: cover;
   border-radius: 4px;
 }
@@ -232,6 +233,7 @@ nav {
   font-style:'Josefin Sans', sans-serif;
   color: var(--black);
 }
+
 .page-subtitle {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 20px;
@@ -239,6 +241,7 @@ nav {
   text-transform: uppercase;
   color: var(--black);
   padding: 8px;
+  margin-top: 50px;
 }
 
 .page-content {
@@ -292,6 +295,24 @@ nav {
   border-radius: 4px;
   object-fit: cover;
   object-position: center;
+}
+
+.project-result{
+  width: 100%;
+  margin: 24px auto;
+  gap: 12px;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.project-result h3 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+  margin-top: 20px;
+  border-top: 1px solid var(--line);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--black);
 }
 
 .project-finalresult{
