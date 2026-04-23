@@ -163,10 +163,10 @@ nav {
 
 /* ── Reference 两栏布局 ───────────────────────── */
 .project-3dmodeling-reference {
-  max-width: 80%;
+  max-width: 100%;
   display: grid;
   padding: 0 100px;
-  grid-template-columns: 1fr 1fr;   /* 左右各一栏 */
+  /* grid-template-columns: 1fr 1fr;   左右各一栏 */
   gap: 32px 100px;
   margin: 32px auto;
   overflow: hidden; 
@@ -277,7 +277,7 @@ nav {
 }
 
 .project-sketch {
-  max-width: 80%;
+  max-width: 100%;
   display: flex;
   gap: 12px;
   margin: 24px auto;
