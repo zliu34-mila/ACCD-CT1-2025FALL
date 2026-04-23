@@ -300,6 +300,15 @@ nav {
   margin: 24px auto;
 }
 
+.project-Video video{
+  max-width: 80%;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin: 24px auto;
+}
+
 /* ── Content sections ──────────────────────── */
 .section {
   display: none;
