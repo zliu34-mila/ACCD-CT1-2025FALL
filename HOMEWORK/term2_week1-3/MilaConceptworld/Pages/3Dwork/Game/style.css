@@ -11,7 +11,7 @@
 
 body {
   padding-left: 50px;
-  background: url('/images/background.jpg');
+  background: url('./images/background.jpg');
   background-size: 100%;
   color: var(--black);
   font-family: 'Josefin Sans', sans-serif;
@@ -31,7 +31,7 @@ body::before {
 /* ── Custom cursor ─────────────────────────── */
 #cursor {
   position: fixed;
-  width: 80px; height: 80px;
+  width: 40px; height: 40px;
   background:#ff4eb8;
   border-radius: 50%;
   pointer-events: none;
@@ -41,7 +41,7 @@ body::before {
   mix-blend-mode: difference;
 }
 #cursor.hover {
-  width: 100px; height: 100px;
+  width: 80px; height: 80px;
   background:#ff4eb8;
   border-radius: 50%;
 }
@@ -81,7 +81,7 @@ nav {
   gap: 8px;
   text-decoration: none;
   color: var(--black);
-  font-size: 36px;
+  font-size: 30px;
   font-style: italic;
   font-weight: 1500;
   letter-spacing: 0.04em;
@@ -106,14 +106,14 @@ nav {
 }
 
 .tab-btn {
-  font-family: 'Lexend Deca', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   background: none;
   border: none;
   cursor: none;
   font-weight: 600;
   font-size: 24px;
   letter-spacing: 0.14em;
-  text-transform: uppercase;
+  text-transform: capitalize;
   color: var(--gray);
   padding: 0 22px;
   position: relative;
@@ -134,7 +134,7 @@ nav {
 .tab-btn.active::after  { transform: scaleX(1); }
 
 .tab-rightbtn {
-  font-family: 'Lexend Deca', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   background: none;
   border: none;
   cursor: none;
@@ -172,7 +172,7 @@ nav {
 /* 标题横跨两栏 → 不需要，每个标题只在自己那栏 */
 .explanation {
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 24px;
+  font-size: 18px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--black);
@@ -219,8 +219,8 @@ nav {
 }
 .page-title {
   font-family: 'Josefin Sans', sans-serif;
-  font-weight: 1000;
-  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 800;
+  font-size: 20px;
   line-height: 1;
   letter-spacing: -0.01em;
 }
@@ -230,7 +230,7 @@ nav {
 }
 .page-subtitle {
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 48px;
+  font-size: 20px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--black);
@@ -241,7 +241,7 @@ nav {
   margin: 50px 300px;
   padding: 48px;
   color: var(--black);
-  font-size: 18px;
+  font-size: 12px;
   line-height: 1.8; 
 }
 
@@ -267,7 +267,7 @@ nav {
 
 
 .project-description {
-  font-size: 38px;
+  font-size: 16px;
   line-height: 1.6;
   color: var(--black);
   margin-bottom: 48px;
@@ -547,4 +547,127 @@ nav {
   .page-header   { padding: 100px 20px 32px; flex-direction: column; align-items: flex-start; gap: 8px; }
   .section       { padding: 40px 20px 60px; }
   .work-item:nth-child(3n+1) { grid-column: span 1; aspect-ratio: 4/3; }
+}
+
+@media (min-width: 1440px) {
+  .body{
+    background: fixed;
+  }
+  
+  nav {
+    height: 160px;
+    padding: 0 72px;
+  }
+ 
+  .nav-home {
+    font-size: 30px;
+    padding: 40px 48px;
+  }
+ 
+  .tab-btn,
+  .tab-rightbtn {
+    font-size: 16px;
+    padding: 0 28px;
+  }
+ 
+  .page-header {
+    padding: 220px 72px 56px;
+  }
+ 
+  .page-title {
+    font-size: 36px;
+  }
+ 
+  .page-subtitle {
+    font-size: 28px;
+  }
+ 
+  .page-content {
+    margin: 50px 400px;
+    font-size: 18px;
+  }
+ 
+  .project-description {
+    font-size: 16px;
+  }
+ 
+  .project-3dmodeling-reference {
+    max-width: 75%;
+    gap: 40px 120px;
+    padding: 0 120px;
+  }
+ 
+  .work-grid {
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  }
+ 
+  .project-finalresult img,
+  .project-finalresult video {
+    width: 70%;
+  }
+ 
+  .page-footer {
+    padding: 48px 80px;
+  }
+ 
+  .social-links a,
+  .additional-info p {
+    font-size: 26px;
+  }
+}
+ 
+ 
+/* ── MacBook / iPad Pro 横屏  1024–1439px ─────────────────────── */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  nav {
+    height: 130px;
+    padding: 0 48px;
+  }
+ 
+  .nav-home {
+    font-size: 30px;
+    padding: 32px 36px;
+  }
+ 
+  .tab-btn,
+  .tab-rightbtn {
+    font-size: 14px;
+    padding: 0 16px;
+  }
+ 
+  .page-header {
+    padding: 180px 48px 48px;
+  }
+ 
+  .page-title {
+    font-size: clamp(2.4rem, 4.5vw, 4rem);
+  }
+ 
+  .page-subtitle {
+    font-size: 18px;
+  }
+ 
+  .page-content {
+    margin: 50px 180px;
+    font-size: 17px;
+  }
+ 
+  .project-description {
+    font-size: 16px;
+  }
+ 
+  .project-3dmodeling-reference {
+    max-width: 88%;
+    gap: 28px 80px;
+    padding: 0 60px;
+  }
+ 
+  .project-finalresult img,
+  .project-finalresult video {
+    width: 85%;
+  }
+ 
+  .page-footer {
+    padding: 36px 48px;
+  }
 }
