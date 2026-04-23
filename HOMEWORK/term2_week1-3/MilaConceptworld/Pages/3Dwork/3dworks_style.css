@@ -10,7 +10,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  padding-left: 50px;
+  padding-left: 0;
   background: url('././Mediaanimation/images/background.jpg');
   background-size: cover;
   color: var(--black);
@@ -32,7 +32,7 @@ body::before {
 #cursor {
   position: fixed;
   width: 40px; height: 40px;
-  background:#ff4eb8;
+  background: #ff4eb8;
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
@@ -42,7 +42,7 @@ body::before {
 }
 #cursor.hover {
   width: 80px; height: 80px;
-  background:#ff4eb8;
+  background: #ff4eb8;
   border-radius: 50%;
 }
 
@@ -58,13 +58,12 @@ body::before {
   50%       { transform: translateY(-8px) rotate(var(--r, 0deg)); }
 }
 
-
 /* ── Top nav ───────────────────────────────── */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  background:  #fdf6ee;
+  background: #fdf6ee;
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
   display: flex;
@@ -73,7 +72,6 @@ nav {
   padding: 0 48px;
 }
 
-/* Home button */
 .nav-home {
   font-family: 'Josefin Sans', sans-serif;
   display: flex;
@@ -92,12 +90,11 @@ nav {
   transition: opacity .2s;
 }
 .nav-home:hover { opacity: 0.5; }
-.nav-home svg   { 
-    flex-shrink: 0;
-    width: 20px; height: 20px;
+.nav-home svg {
+  flex-shrink: 0;
+  width: 20px; height: 20px;
 }
 
-/* Tab buttons */
 .nav-tabs {
   display: flex;
   align-items: stretch;
@@ -128,12 +125,12 @@ nav {
   transform: scaleX(0);
   transition: transform .3s cubic-bezier(.4, 0, .2, 1);
 }
-.tab-btn:hover          { color: var(--black); }
-.tab-btn.active         { color: var(--black); }
-.tab-btn.active::after  { transform: scaleX(1); }
+.tab-btn:hover         { color: var(--black); }
+.tab-btn.active        { color: var(--black); }
+.tab-btn.active::after { transform: scaleX(1); }
 
 .tab-rightbtn {
-  font-family: 'Lexend Deca', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   background: none;
   border: none;
   cursor: none;
@@ -147,65 +144,12 @@ nav {
   transition: color .25s;
   white-space: nowrap;
 }
-
 .nav-tabs button:nth-child(5) {
-  gap:10px;
+  gap: 10px;
   margin-left: auto;
 }
-
-.tab-rightbtn:hover          { color: var(--black); }
-.tab-rightbtn.active         { color: var(--black); }
-
-/* ── Reference 两栏布局 ───────────────────────── */
-.project-3dmodeling-reference {
-  max-width: 80%;
-  display: grid;
-  padding: 0 100px;
-  grid-template-columns: 1fr 1fr;   /* 左右各一栏 */
-  gap: 32px 100px;
-  margin: 32px auto;
-  overflow: hidden; 
-}
-
-/* 标题横跨两栏 → 不需要，每个标题只在自己那栏 */
-.explanation {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 24px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--black);
-  margin-bottom: 12px;
-  flex-shrink: 0; 
-}
-
-/* ── 每栏里的图片网格 ─────────────────────────── */
-.reference-grid {
-  flex: 1;
-  margin: 0px;
-  display: grid;
-  max-width: 100%;
-  height: calc(100% - 36px);
-  grid-template-columns: 1fr 1fr;   /* 每栏内再两列 */
-  gap: 50px;
-}
-
-.reference-grid img {
-  max-width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-.grid-1row2col { 
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;         /* 右栏：1行2列 */
-}
-
-.grid-1row2col img {
-  height: 100%;                    /* 图片填满整行高度 */
-  object-fit: cover;
-}
-
+.tab-rightbtn:hover         { color: var(--black); }
+.tab-rightbtn.active        { color: var(--black); }
 
 /* ── Page header ───────────────────────────── */
 .page-header {
@@ -223,7 +167,6 @@ nav {
   letter-spacing: -0.01em;
 }
 .page-title span {
-  font-style:'Josefin Sans', sans-serif;
   color: var(--black);
 }
 .page-subtitle {
@@ -235,34 +178,18 @@ nav {
   padding: 8px;
 }
 
+/* ── Page content ──────────────────────────── */
 .page-content {
   margin: 50px 300px;
   padding: 48px;
   color: var(--black);
   font-size: 18px;
-  line-height: 1.8; 
+  line-height: 1.8;
 }
 
 .project-process {
   overflow: hidden;
 }
-
-.project-2dmatrix-single {
-  max-width: 100%;
-  display: flex;
-  gap: 12px;
-  margin: 24px 0;
-  justify-content: center; 
-}   
-
-.project-2dmatrix-single img {
-  width: 50%;
-  height: auto;
-  object-position: center;
-  border-radius: 4px;
-  object-fit: cover;
-}
-
 
 .project-description {
   font-size: 16px;
@@ -271,14 +198,75 @@ nav {
   margin-bottom: 48px;
 }
 
+/* ── Reference 两栏布局 ────────────────────── */
+.project-3dmodeling-reference {
+  max-width: 80%;
+  display: grid;
+  padding: 0 100px;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 100px;
+  margin: 32px auto;
+  overflow: hidden;
+}
+
+.explanation {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.reference-grid {
+  flex: 1;
+  margin: 0;
+  display: grid;
+  max-width: 100%;
+  height: calc(100% - 36px);
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+.reference-grid img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.grid-1row2col {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+.grid-1row2col img {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Sketch / single panels ────────────────── */
+.project-2dmatrix-single {
+  max-width: 100%;
+  display: flex;
+  gap: 12px;
+  margin: 24px 0;
+  justify-content: center;
+}
+.project-2dmatrix-single img {
+  width: 50%;
+  height: auto;
+  object-position: center;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
 .project-sketch {
   max-width: 50%;
   display: flex;
   gap: 12px;
   margin: 24px auto;
-  justify-content: center; 
+  justify-content: center;
 }
-
 .project-sketch img {
   width: 100%;
   height: auto;
@@ -291,11 +279,10 @@ nav {
   max-width: 50%;
   display: flex;
   gap: 12px;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
   margin: 24px auto;
 }
-
 .project-sketch-single img {
   width: 100%;
   height: auto;
@@ -304,13 +291,13 @@ nav {
   object-position: center;
 }
 
-.project-3dmodeling-single{
-    max-width: 50%;
-    display: flex;
-    gap: 12px;
-    justify-content: center; 
-    align-items: center;
-    margin: 24px auto;
+.project-3dmodeling-single {
+  max-width: 50%;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin: 24px auto;
 }
 
 /* ── Content sections ──────────────────────── */
@@ -326,13 +313,12 @@ nav {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Section heading */
 .section-heading {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gray);
+  color: var(--black);
   margin-bottom: 40px;
   display: flex;
   align-items: center;
@@ -342,14 +328,14 @@ nav {
   content: '';
   flex: 1;
   height: 1px;
-  background: var(--line);
 }
 
-/* ── Work grid ─────────────────────────────── */
+/* ── Work grid — 固定两列，统一高度 ─────────── */
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2px;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 0 48px;
 }
 
 .work-item {
@@ -359,8 +345,6 @@ nav {
   overflow: hidden;
   cursor: none;
 }
-.work-item:nth-child(3n+1) { aspect-ratio: 16/9; grid-column: span 2; }
-.work-item:nth-child(5n+4) { aspect-ratio: 1/1; }
 
 .work-item-inner {
   width: 100%; height: 100%;
@@ -468,13 +452,16 @@ nav {
   to { transform: translate(-50%, -50%) scale(4); opacity: 0; }
 }
 
+/* ================================================================
+   响应式
+================================================================ */
+
+/* ── 手机  ≤ 767px ─────────────────────────── */
 @media (max-width: 767px) {
- 
-  /* Kill custom cursor on touch */
-  body   { cursor: auto; padding-left: 0; }
+  body { cursor: auto; padding-left: 0; }
   #cursor { display: none; }
- 
-  /* Nav */
+  .deco { display: none; }
+
   nav {
     height: auto;
     flex-direction: column;
@@ -495,7 +482,6 @@ nav {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     padding: 4px 0;
-    gap: 0;
   }
   .nav-tabs::-webkit-scrollbar { display: none; }
   .tab-btn, .tab-rightbtn {
@@ -506,18 +492,16 @@ nav {
     flex-shrink: 0;
   }
   .tab-btn::after { left: 12px; right: 12px; }
- 
-  /* Page header */
+
   .page-header {
     padding: 140px 20px 28px;
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
   }
-  .page-title  { font-size: 24px; }
+  .page-title    { font-size: 24px; }
   .page-subtitle { font-size: 14px; padding: 4px 0; }
- 
-  /* Page content */
+
   .page-content {
     margin: 24px 0;
     padding: 24px 20px;
@@ -525,11 +509,9 @@ nav {
     line-height: 1.7;
   }
   .project-description { font-size: 12px; margin-bottom: 28px; }
- 
-  /* Sections */
+
   .section { padding: 28px 20px 48px; }
- 
-  /* Reference two-column → single column */
+
   .project-3dmodeling-reference {
     max-width: 100%;
     grid-template-columns: 1fr;
@@ -542,103 +524,83 @@ nav {
     gap: 8px;
   }
   .explanation { font-size: 16px; }
- 
-  /* Sketch / 3-D single panels */
+
   .project-sketch,
   .project-sketch-single,
   .project-3dmodeling-single {
     max-width: 100%;
     margin: 16px 0;
   }
- 
-  /* 2-D matrix */
-  .project-2dmatrix-single {
-    flex-direction: column;
-    gap: 8px;
-  }
+
+  .project-2dmatrix-single { flex-direction: column; gap: 8px; }
   .project-2dmatrix-single img { width: 100%; }
- 
-  /* Work grid → single column */
+
+  /* 手机单列 */
   .work-grid {
     grid-template-columns: 1fr;
-    gap: 2px;
+    gap: 8px;
+    padding: 0 20px;
   }
-  .work-item:nth-child(3n+1) {
-    aspect-ratio: 16/9;
-    grid-column: span 1;
-  }
- 
-  /* Floating decos — hide on mobile to save space */
-  .deco { display: none; }
+  .work-item { aspect-ratio: 4/3; }
 }
 
+/* ── 平板  768px – 1199px ──────────────────── */
 @media (min-width: 768px) and (max-width: 1199px) {
- 
   body { padding-left: 0; }
- 
-  /* Nav */
+
   nav { height: 100px; padding: 0 28px; }
   .nav-home {
-    font-size: 24px;
+    font-size: 20px;
     padding: 24px 24px;
     margin-right: 20px;
   }
   .tab-btn, .tab-rightbtn {
-    font-size: 14px;
-    padding: 0 16px;
+    font-size: 13px;
+    padding: 0 14px;
     letter-spacing: 0.10em;
   }
-  .tab-btn::after { left: 16px; right: 16px; }
- 
-  /* Page header */
+  .tab-btn::after { left: 14px; right: 14px; }
+
   .page-header {
     padding: 130px 28px 36px;
     gap: 12px;
   }
-  .page-title   { font-size: 32px; }
+  .page-title    { font-size: 28px; }
   .page-subtitle { font-size: 18px; }
- 
-  /* Page content */
+
   .page-content {
-    margin: 36px 80px;
-    padding: 36px;
-    font-size: 16px;
+    margin: 36px 60px;
+    padding: 32px;
+    font-size: 15px;
   }
-  .project-description { font-size: 24px; }
- 
-  /* Sections */
+  .project-description { font-size: 14px; }
+
   .section { padding: 40px 28px 64px; }
- 
-  /* Reference — keep 2 cols but tighter */
+
   .project-3dmodeling-reference {
     max-width: 100%;
     gap: 24px 48px;
     padding: 0 28px;
   }
   .reference-grid { gap: 20px; }
- 
-  /* Sketches */
+
   .project-sketch,
   .project-sketch-single,
-  .project-3dmodeling-single {
-    max-width: 70%;
+  .project-3dmodeling-single { max-width: 70%; }
+
+  /* 平板两列 */
+  .work-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 0 28px;
   }
- 
-  /* Work grid — 2 cols max */
-  .work-grid { grid-template-columns: repeat(2, 1fr); }
-  .work-item:nth-child(3n+1) {
-    aspect-ratio: 16/9;
-    grid-column: span 2;
-  }
+  .work-item { aspect-ratio: 4/3; }
 }
- 
- 
-/* ── 3. MACBOOK 13"  (1200px – 1439px) ─────────────────────────── */
-@media (min-width: 1200px) and (max-width: 1920px) {
- 
+
+/* ── MacBook / PC  1200px – 1919px ────────── */
+@media (min-width: 1200px) and (max-width: 1919px) {
   body { padding-left: 0; }
- 
-  /* Nav */
+
   nav { height: 120px; padding: 0 36px; }
   .nav-home {
     font-size: 20px;
@@ -650,24 +612,20 @@ nav {
     padding: 0 18px;
   }
   .tab-btn::after { left: 18px; right: 18px; }
- 
-  /* Page header */
+
   .page-header { padding: 148px 36px 40px; }
   .page-title  { font-size: clamp(24px, 32px, 40px); }
   .page-subtitle { font-size: 20px; }
- 
-  /* Page content */
+
   .page-content {
     margin: 40px 160px;
     padding: 40px;
-    font-size: 18px;
+    font-size: 17px;
   }
-  .project-description { font-size: 14px; }
- 
-  /* Sections */
+  .project-description { font-size: 15px; }
+
   .section { padding: 48px 36px 72px; }
- 
-  /* Reference */
+
   .project-3dmodeling-reference {
     max-width: 90%;
     gap: 28px 72px;
@@ -675,23 +633,21 @@ nav {
   }
   .reference-grid { gap: 32px; }
   .explanation { font-size: 20px; }
- 
-  /* Sketches */
+
   .project-sketch,
   .project-sketch-single,
-  .project-3dmodeling-single {
-    max-width: 55%;
-  }
- 
-  /* Work grid — stays auto-fill but min a bit smaller */
+  .project-3dmodeling-single { max-width: 55%; }
+
+  /* MacBook 两列 */
   .work-grid {
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    padding: 0 36px;
   }
+  .work-item { aspect-ratio: 4/3; }
 }
 
-
-
-/* ── 5. ULTRA-WIDE  (≥ 1920px) ─────────────────────────────────── */
+/* ── 超宽屏  ≥ 1920px ──────────────────────── */
 @media (min-width: 1920px) {
   .page-content {
     margin: 50px 400px;
@@ -702,7 +658,12 @@ nav {
   }
   .project-sketch,
   .project-sketch-single,
-  .project-3dmodeling-single {
-    max-width: 45%;
+  .project-3dmodeling-single { max-width: 45%; }
+
+  .work-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 0 72px;
   }
+  .work-item { aspect-ratio: 4/3; }
 }
