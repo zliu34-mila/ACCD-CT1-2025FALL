@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TD Interaction Design</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="cursor"></div>
+
+    <nav>
+        <a class="nav-home" href="../../index.html">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M1 7L7 1L13 7V13H9V9H5V13H1V7Z" stroke="#111" stroke-width="1.2" stroke-linejoin="round"/>
+            </svg>
+            <span>Home</span>
+        </a>
+
+        <div class="nav-tabs">
+            <button class="tab-btn" data-tab="media">Media Animation</button>
+            <button class="tab-btn" data-tab="game">Game Design</button>
+            <button class="tab-btn" data-tab="product">Product Design</button>
+            <button class="tab-btn" data-tab="prototype">Prototype &amp; Concept</button>
+            <svg> 
+                <circle cx="7" cy="7" r="6" stroke="#111" stroke-width="1.2"/>
+            </svg>
+
+            <button class="tab-rightbtn" data-tab="see my CV">see my CV</button>
+            <button class="tab-rightbtn" data-tab="contact">Contact</button>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1 class="page-title">TD Interaction Design<span>: Particles</span> </h1>
+    </div>
+
+    <div class="page-content">
+            <h3 class="page-subtitle">Concept : lighting, shaping, and moving</h3>
+            <div class="project-description">
+                <p>
+                    This marks my first systematic foray into TouchDesigner, focusing primarily on the practical application of basic, simple interactive visuals. Throughout this learning module, I gained a firsthand appreciation for the immense allure of dynamic interface interactions. I was consistently astonished by the dramatic visual transformations that occurred—where subtle tweaks to a few parameters could yield vastly different imagery—making the interface interaction feel highly engaging and playful. It became particularly fascinating when, in the final stage, these visual animations were projected into physical space, bringing the entire experience to life in a truly captivating way.
+                </p>
+                
+            </div>
+
+            <div class="project-idea-single">
+                <img src="images/TDinterface.png" alt="my dream world">
+            </div>
+
+            <div class="project-process">
+                <h3 class="page-subtitle">Process : Build the game sections</h3>
+                    <div class="project-description">
+                        <p>
+                            In this learning exploration, I primarily experimented with three areas: image interaction, mouse interaction, and gesture interaction. By leveraging these distinct modes of expression, I explored the various possibilities for visual interaction within TD. Moreover, the application of these diverse media allowed me to gradually gain an understanding of the meaning and logic behind each node, as well as the interplay of their mutual effects—a process I found truly fascinating.
+                        </p>
+
+                    </div>
+
+                    <h3>collage: exploration in Touch designer</h3>
+
+                    <ul>
+                        <li>1.images interaction: </li>
+                        <div>
+                            <p>
+                                The image interaction component primarily utilizes the interconnection and interplay of various nodes—such as noise, feedback loops, and transforms—to generate imagery that undergoes random variations or movement. By adjusting parameters such as color, size, position, and spatial relationships, the final visual outcome is dynamically altered.
+                            </p>
+                        </div>
+                        <div class="project-sketch">
+                            <img src="images/create-gamebox.png" alt="Concept Sketch of dream world">
+                            <img src="images/create-gamebox.png" alt="Concept Sketch of dream world">
+                            <img src="images/create-gamebox.png" alt="Concept Sketch of dream world">
+                            <img src="images/create-gamebox.png" alt="Concept Sketch of dream world">
+                        </div>
+                        <div class="project-sketch">
+                            <img src="images/create-gamebox.png" alt="Concept Sketch of dream world">
+                            <img src="images/create-gamebox.png" alt="Concept Sketch of dream world">
+                            <img src="images/create-gamebox.png" alt="Concept Sketch of dream world">
+                            <img src="images/create-gamebox.png" alt="Concept Sketch of dream world">
+                        </div>
+                        <div class="project-sketch">
+                            <img src="images/create-gamebox.png" alt="Concept Sketch of dream world">
+                            <img src="images/create-gamebox.png" alt="Concept Sketch of dream world">
+                            <img src="images/create-gamebox.png" alt="Concept Sketch of dream world">
+                            <img src="images/create-gamebox.png" alt="Concept Sketch of dream world">
+                        </div>
+                        <div class="project-sketch">
+                            <img src="images/create-gamebox.png" alt="Concept Sketch of dream world">
+                            <img src="images/create-gamebox.png" alt="Concept Sketch of dream world">
+                            <img src="images/create-gamebox.png" alt="Concept Sketch of dream world">
+                            <img src="images/create-gamebox.png" alt="Concept Sketch of dream world">
+                        </div>
+
+                        <li>2.mouse interaction:</li>
+                        <div>
+                            <p>
+                                Mouse interaction involves augmenting images with "mousein" and "math" functions to establish a dynamic link between the mouse hardware and the visual content. By capturing mouse position data and click actions, this mechanism alters the visual effects displayed on the screen.</p>
+                                <div class="project-sketch">
+                                    <video src="images/running.mp4" autoplay loop muted playsinline></video>
+                                    <video src="images/running.mp4" autoplay loop muted playsinline></video>
+                                    <video src="images/running.mp4" autoplay loop muted playsinline></video>
+                                </div>
+                        </div>
+
+                        <li>3. hands interaction:</li>
+                        <div>
+                            <p>
+                                The hand interaction component explores the camera's capture of hand skeletal node data—specifically, reading information such as the position and rotational dynamics of the hand's skeletal nodes—and utilizes node elements (such as "math" nodes) to link this data to visual transformations. By doing so, the visual content on the screen responds dynamically to the movements and gestures of the user's hand, creating an interactive experience that bridges physical motion with digital imagery.
+                            </p>
+                            <div class="project-sketch">
+                                <video src="images/running.mp4" autoplay loop muted playsinline></video>
+                                <video src="images/running.mp4" autoplay loop muted playsinline></video>
+                            </div>
+                        </div>
+
+                <h3 class="page-subtitle">Final spatial showcase</h3>
+
+                <div class="project-description">
+                    <p>Finally, I projected these visual images into a physical space using a projector, thereby achieving an integration of the physical environment and digital media. I sought out a specific multi-faceted wall structure to serve as the canvas for these small-scale visual experiments; by adjusting the size and shape of the projected imagery to align precisely with the contours of the actual wall, I was able to create a novel visual effect.
+                    </p>
+                </div>
+
+                <div class="project-finalresult">
+                    <video src="images/usertest2.mp4" autoplay loop muted playsinline></video>
+                    <video src="images/usertest.mp4" autoplay loop muted playsinline></video>
+                </div>
+            </div>
+        </div>
+
+            
+
+    </div>
+
+</body>
+
+<footer class="page-footer">
+    <div class="contact-info">
+        <div class="social-links">
+            <div>
+                <img src="images/Instagram-icon.png" alt="Instagram icon">
+                <a href="https://www.instagram.com/milaconceptworld/" target="_blank">Instagram</a>
+            </div>
+            <div>
+                <img src="images/LinkedIn-icon.png" alt="LinkedIn icon">
+                <a href="https://www.linkedin.com/in/milaconceptworld/" target="_blank">LinkedIn</a>
+            </div>
+            <div>
+                <img src="images/email-icon.png" alt="email icon">
+                <a href="mailto:info@milaconceptworld.com">Email</a>
+            </div>
+        </div> 
+
+        <div class="additional-info">
+            <div class="copyright">
+                    <p>© 2024 Mila Concept World. All rights reserved.</p>
+            </div>
+            <button class="back-to-top" onclick="scrollToTop()">Back to Top</button>
+        </div>
+        
+
+</footer>
+
+<script src="interaction.js"></script>
+
+</html>
